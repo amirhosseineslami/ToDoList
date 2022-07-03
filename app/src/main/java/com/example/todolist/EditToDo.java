@@ -16,12 +16,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class EditToDo extends AppCompatActivity implements View.OnClickListener, Toolbar.OnMenuItemClickListener {
     ToDo editingToDo, editedToDo;
-    ImageView editImageView, deleteImageView, starImageView, offStarImageView;
+    ImageView starImageView, offStarImageView;
     EditText dateEditTxt, titleEditTxt, detailEditTxt;
     Button submitBtn;
     TextView titleTxt, detailTxt, dateTxt;
@@ -122,8 +123,6 @@ public class EditToDo extends AppCompatActivity implements View.OnClickListener,
     }
 
     void init() {
-        editImageView = findViewById(R.id.imageView_edit);
-        deleteImageView = findViewById(R.id.imageView_delete);
         detailTxt = findViewById(R.id.textView_detail);
         detailEditTxt = findViewById(R.id.editText_detail);
         titleTxt = findViewById(R.id.textView_title);
@@ -134,8 +133,6 @@ public class EditToDo extends AppCompatActivity implements View.OnClickListener,
         offStarImageView = findViewById(R.id.imageView_star_off);
         submitBtn = findViewById(R.id.button_insert);
         toolbar = findViewById(R.id.toolbar);
-        editImageView.setOnClickListener(this);
-        deleteImageView.setOnClickListener(this);
         starImageView.setOnClickListener(this);
         offStarImageView.setOnClickListener(this);
         submitBtn.setOnClickListener(this);
