@@ -19,7 +19,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class EditToDo extends AppCompatActivity implements View.OnClickListener {
+public class EditToDo extends AppCompatActivity implements View.OnClickListener, Toolbar.OnMenuItemClickListener {
     ToDo editingToDo, editedToDo;
     ImageView editImageView, deleteImageView, starImageView, offStarImageView;
     EditText dateEditTxt, titleEditTxt, detailEditTxt;
@@ -52,8 +52,7 @@ public class EditToDo extends AppCompatActivity implements View.OnClickListener 
 
     @Override
     public void onClick(View view) {
-        DBHelper dbHelper = new DBHelper(this);
-
+/*
         if (view == deleteImageView) {
             //**deleting**
             helperAsyncTask = new HelperAsyncTask(this, editingToDo, editedToDo);
@@ -72,10 +71,9 @@ public class EditToDo extends AppCompatActivity implements View.OnClickListener 
             detailEditTxt.setVisibility(View.VISIBLE);
             detailEditTxt.setText(detailTxt.getText());
 
-        } else if (view == submitBtn) {
+        }*/ if (view == submitBtn) {
             boolean isMarked;
-            if (starImageView.getVisibility() == View.VISIBLE) isMarked = true;
-            else isMarked = false;
+            isMarked = starImageView.getVisibility() == View.VISIBLE;
             //**editing**
             editedToDo = new ToDo(String.valueOf(titleEditTxt.getText()), String.valueOf(dateEditTxt.getText()), false, isMarked, String.valueOf(detailEditTxt.getText()), editingToDo.ID);
             helperAsyncTask = new HelperAsyncTask(this, editingToDo, editedToDo);
@@ -145,6 +143,7 @@ public class EditToDo extends AppCompatActivity implements View.OnClickListener 
         toDoEditingPosition = intent.getIntExtra("position", 0);
         setSupportActionBar(toolbar);
         toolbar.setElevation(5);
+        toolbar.setOnMenuItemClickListener(this);
     }
 
     void prepareTexts() {
@@ -165,6 +164,7 @@ public class EditToDo extends AppCompatActivity implements View.OnClickListener 
         else starImageView.setVisibility(View.INVISIBLE);
     }
     void actionBarPrepares(){
+        if(getSupportActionBar()!=null)
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(android.R.drawable.ic_delete);
     }
@@ -175,5 +175,28 @@ public class EditToDo extends AppCompatActivity implements View.OnClickListener 
             finish();
         }
         return true;
+    }
+
+    @Override
+    public boolean onMenuItemClick(MenuItem menuItem) {
+        if(menuItem.getItemId()==R.id.item_edit){
+            submitBtn.setVisibility(View.VISIBLE);
+            titleTxt.setVisibility(View.INVISIBLE);
+            titleEditTxt.setVisibility(View.VISIBLE);
+            titleEditTxt.setText(titleTxt.getText());
+            dateTxt.setVisibility(View.INVISIBLE);
+            dateEditTxt.setVisibility(View.VISIBLE);
+            dateEditTxt.setText(dateTxt.getText());
+            detailTxt.setVisibility(View.INVISIBLE);
+            detailEditTxt.setVisibility(View.VISIBLE);
+            detailEditTxt.setText(detailTxt.getText());
+        }
+        if(menuItem.getItemId()==R.id.item_delete){
+            helperAsyncTask = new HelperAsyncTask(this, editingToDo, editedToDo);
+            helperAsyncTask.doInBackground(2, toDoEditingPosition);
+            Intent intent = new Intent(EditToDo.this, MainActivity.class);
+            startActivity(intent);
+        }
+        return false;
     }
 }

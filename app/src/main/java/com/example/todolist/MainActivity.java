@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         recyclerAdapter.OnItemClickListener(new RecyclerAdapter.setOnItemClickListener() {
             @Override
             public void OnClickItem(int position) {
-                Toast.makeText(MainActivity.this, ""+position, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MainActivity.this, EditToDo.class);
                 intent.putExtra("position", position);
                 startActivity(intent);
