@@ -22,6 +22,12 @@ public class Constants {
     public static final String NOTIFICATION_MUSIC_TITLE = "music is playing!";
     public static final int NOTIFICATION_MUSIC_ID = 2;
 
+    public static final String NOTIFICATION_SETTING_CHANNEL_NAME = "playing music";
+    public static final String NOTIFICATION_SETTING_CHANNEL_DESCRIPTION = "MUSIC";
+    public static final String NOTIFICATION_SETTING_CHANNEL_ID = "3";
+    public static final String NOTIFICATION_SETTING_TITLE = "music is playing!";
+    public static final int NOTIFICATION_SETTING_ID = 3;
+
 
 
 }

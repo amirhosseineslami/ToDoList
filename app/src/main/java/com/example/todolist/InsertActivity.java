@@ -77,7 +77,7 @@ public class InsertActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     void publishNewToDoNotification() {
-        BaseApplication baseApplication = (BaseApplication) getApplication();
+
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.matrix_screen);
 
         Notification insertNotification = new NotificationCompat.Builder(this, Constants.NOTIFICATION_INSERT_CHANNEL_ID)
