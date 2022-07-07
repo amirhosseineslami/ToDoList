@@ -31,6 +31,7 @@ public class EditToDo extends AppCompatActivity implements View.OnClickListener,
     int toDoEditingPosition;
     HelperAsyncTask helperAsyncTask;
     Intent intent;
+    ArrayList<ToDo> toDos;
 
 
     @Override
@@ -42,6 +43,7 @@ public class EditToDo extends AppCompatActivity implements View.OnClickListener,
         setVisibilityOfMarkedStar();
         prepareTexts();
         actionBarPrepares();
+        toDos = dbHelper.getTodos();
 
     }
 
@@ -169,7 +171,8 @@ public class EditToDo extends AppCompatActivity implements View.OnClickListener,
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId()== android.R.id.home){
-            finish();
+            Intent intent = new Intent(EditToDo.this, MainActivity.class);
+            startActivity(intent);
         }
         return true;
     }

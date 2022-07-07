@@ -60,20 +60,15 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Holder
             checkBox = itemView.findViewById(R.id.check_box);
             textViewSub = itemView.findViewById(R.id.text_view_subject);
             imageViewStar = itemView.findViewById(R.id.imageView_star);
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if(setOnItemClickListener!= null && getAdapterPosition()!= RecyclerView.NO_POSITION) {
-                        setOnItemClickListener.OnClickItem(getAdapterPosition());
-                    }
+            itemView.setOnClickListener(view -> {
+                if(setOnItemClickListener!= null && getAdapterPosition()!= RecyclerView.NO_POSITION) {
+                    setOnItemClickListener.OnClickItem(getAdapterPosition());
                 }
             });
         }
     }
-
     interface setOnItemClickListener {
         void OnClickItem(int position);
-
     }
     void OnItemClickListener(setOnItemClickListener setOnItemClickListener){
         this.setOnItemClickListener = setOnItemClickListener;

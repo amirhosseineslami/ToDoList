@@ -27,13 +27,15 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS " + Constants.TABLE_NAME + " ( "
+        String CREATE_TABLE_TODOS = "CREATE TABLE IF NOT EXISTS " + Constants.TABLE_NAME + " ( "
                 + Constants.COLUMN_ID + " INTEGER PRIMARY KEY , "
                 + Constants.COLUMN_TITLE + " TEXT ,"
                 + Constants.COLUMN_DATE + " DATE , "
                 + Constants.COLUMN_MARK + " INTEGER ,"
                 + Constants.COLUMN_DETAIL + " TEXT )";
-        sqLiteDatabase.execSQL(CREATE_TABLE);
+
+
+        sqLiteDatabase.execSQL(CREATE_TABLE_TODOS);
 
     }
 

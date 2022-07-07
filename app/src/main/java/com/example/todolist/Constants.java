@@ -16,4 +16,12 @@ public class Constants {
     public static final String NOTIFICATION_INSERT_TITLE = "New ToDo is added!";
     public static final int NOTIFICATION_INSERT_ID = 1;
 
+    public static final String NOTIFICATION_MUSIC_CHANNEL_NAME = "playing music";
+    public static final String NOTIFICATION_MUSIC_CHANNEL_DESCRIPTION = "MUSIC";
+    public static final String NOTIFICATION_MUSIC_CHANNEL_ID = "2";
+    public static final String NOTIFICATION_MUSIC_TITLE = "music is playing!";
+    public static final int NOTIFICATION_MUSIC_ID = 2;
+
+
+
 }
