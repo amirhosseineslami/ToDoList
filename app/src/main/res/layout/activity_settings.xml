@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0F3A32"
+    tools:context=".SettingsActivity">
+
+    <Switch
+        android:id="@+id/switch_music"
+        android:layout_width="58dp"
+        android:layout_height="48dp"
+        android:shadowColor="#FFFFFF"
+        android:textColor="#fff"
+        android:textColorHighlight="#fff"
+        android:thumbTint="#fff"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_music"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView_music"
+        app:layout_constraintTop_toTopOf="@+id/textView_music" />
+
+    <TextView
+        android:id="@+id/textView_music"
+        style="@style/setting_text"
+        android:layout_width="63dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="64dp"
+        android:text="Mucic:"
+        android:textColor="#fff"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch_music" />
+</androidx.constraintlayout.widget.ConstraintLayout>
